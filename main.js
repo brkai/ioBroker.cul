@@ -32,7 +32,7 @@ function startAdapter(options) {
 
     adapter.on('stateChange', (id, state) => {
         if (state && !state.ack) {
-            adapter.log.debug('State Change ' + JSON.stringify(id) + ', State: ' + JSON.stringify(state));
+            adapter.log.debug(`State Change ${JSON.stringify(id)}, State: ${JSON.stringify(state)}`);
             //  State Change "cul.0.FS20.123401.cmd" State: {"val":2,"ack":false,"ts":1581365531968,"q":0,"from":"system.adapter.admin.0","user":"system.user.admin","lc":1581365531968}
             const oAddr = id.split('.');
             if (oAddr.length < 5) {
@@ -70,7 +70,7 @@ function startAdapter(options) {
                 cul.close();
                 cul = null;
             } catch (e) {
-                adapter.log.error('Cannot close serial port: ' + e.toString());
+                adapter.log.error(`Cannot close serial port: ${e.toString()}`);
             }
         }
         callback();
@@ -94,7 +94,7 @@ function startAdapter(options) {
             if (!err || process.env.DEBUG) {
                 main();
             } else {
-                adapter.log.error('Cannot open port: ' + err);
+                adapter.log.error(`Cannot open port: ${err}`);
             }
         });
     });
@@ -107,7 +107,7 @@ function startAdapter(options) {
                         if (SerialPort) {
                             // read all found serial ports
                             SerialPort.list().then(ports => {
-                                adapter.log.info('List of port: ' + JSON.stringify(ports));
+                                adapter.log.info(`List of port: ${JSON.stringify(ports)}`);
                                 //adapter.sendTo(obj.from, obj.command, ports, obj.callback);
                                 adapter.sendTo(obj.from, obj.command, ports.map(item => ({
                                     label: item.friendlyName || item.pnpId || item.manufacturer,
@@ -116,12 +116,41 @@ function startAdapter(options) {
                                     comName: item.path
                                 })), obj.callback);
                             }).catch(err => {
-                                adapter.log.warn('Can not get Serial port list: ' + err);
+                                adapter.log.warn(`Can not get Serial port list: ${err}`);
                                 adapter.sendTo(obj.from, obj.command, [{path: 'Not available'}], obj.callback);
                             });
                         } else {
                             adapter.log.warn('Module serialport is not available');
                             adapter.sendTo(obj.from, obj.command, [{comName: 'Not available'}], obj.callback);
+                        }
+                    }
+                    break;
+
+                case 'listUart5':
+                    if (obj.callback) {
+                        try {
+                            if (SerialPort) {
+                                // read all found serial ports
+                                SerialPort.list()
+                                    .then(ports => {
+                                        adapter.log.info(`List of port: ${JSON.stringify(ports)}`);
+                                        if (obj.message && obj.message.experimental) {
+                                            const dirSerial = '/dev/serial/by-id';
+                                            adapter.sendTo(obj.from, obj.command, ports.map(item => ({label: `${dirSerial}/${item.id}${item.manufacturer ? `[${item.manufacturer}]` : ''}`, value: `${dirSerial}/${item.id}`})), obj.callback);
+                                        } else {
+                                            adapter.sendTo(obj.from, obj.command, ports.map(item => ({label: item.path, value: item.path})), obj.callback);
+                                        }
+                                    })
+                                    .catch(e => {
+                                        adapter.sendTo(obj.from, obj.command, [], obj.callback);
+                                        adapter.log.error(e)
+                                    });
+                            } else {
+                                adapter.log.warn('Module serialport is not available');
+                                adapter.sendTo(obj.from, obj.command, [{label: 'Not available', value: ''}], obj.callback);
+                            }
+                        } catch (e) {
+                            adapter.sendTo(obj.from, obj.command, [{label: 'Not available', value: ''}], obj.callback);
                         }
                     }
                     break;

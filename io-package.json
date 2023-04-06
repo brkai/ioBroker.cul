@@ -146,6 +146,9 @@
         "js-controller": ">=2.0.0"
       }
     ],
+    "adminUI": {
+      "config": "json"
+    },
     "plugins": {
       "sentry": {
         "dsn": "https://1df51a90ee094b88983dc43d700a5066@sentry.iobroker.net/89"
@@ -167,6 +170,7 @@
     {
       "_id": "_design/cul",
       "language": "javascript",
+      "type": "design",
       "views": {
         "devices": {
           "map": "function(doc) {\n  if (doc.type == 'device' && doc._id.slice(0, 4) == 'cul') {\n   emit(doc._id, doc);\n  }\n}"
