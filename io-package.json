@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "cul",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "news": {
+      "2.1.0": {
+        "en": "Select port by ID instead of name as option\nUpdated GUI for admin 6",
+        "de": "Wählen Sie Port per ID anstelle des Namens als Option\nAktualisierte GUI für admin 6",
+        "ru": "Выберите порт ID вместо имени в качестве опции\nОбновлено GUI для admin 6",
+        "pt": "Selecione a porta por ID em vez de nome como opção\nGUI atualizado para admin 6",
+        "nl": "Select port in plaats van naam als optie\nQuality over Quantity (QoQ) Releases Vertaling:",
+        "fr": "Sélectionnez le port par ID au lieu du nom comme option\nActualisé GUI pour admin 6",
+        "it": "Selezionare la porta per ID invece di nome come opzione\nGUI aggiornata per admin 6",
+        "es": "Seleccione el puerto por ID en lugar de nombre como opción\nActualizado GUI para admin 6",
+        "pl": "Wybrany port przez ID zamiast nazwy jako opcja\nAdministrator 6",
+        "uk": "Виберіть порт замість імені замість параметра\nОновлений графічний інтерфейс для адміністратора 6",
+        "zh-cn": "独立港口的名称而不是选择名称\n附录6"
+      },
       "2.0.2": {
         "en": "IMPORTANT: Nodejs 12.x is now needed at least!\nAdd support for devices with address 0\nUpdated serialport package",
         "de": "WICHTIG: Nodejs 12.x wird jetzt mindestens benötigt!\nUnterstützung für Geräte mit Adresse 0 hinzugefügt\nSerialport-Paket aktualisiert",
@@ -74,18 +87,6 @@
         "es": "asegúrese de que la comprobación de conexión no bloquee el adaptador (Sentry IOBROKER-CUL-3)\naccidentes previstos (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
         "pl": "upewnij się, że sprawdzenie połączenia nie powoduje awarii adaptera (Sentry IOBROKER-CUL-3)\nzapobiega awariom (Sentry IOBROKER-CUL-5, IOBROKER-CUL-8)",
         "zh-cn": "确保连接检查不会使适配器崩溃（Sentry IOBROKER-CUL-3）\n防止崩溃（哨兵IOBROKER-CUL-5，IOBROKER-CUL-8）"
-      },
-      "1.3.0": {
-        "en": "Really update dependencies and Serialport",
-        "de": "Aktualisieren Sie wirklich Abhängigkeiten und Serialport",
-        "ru": "Действительно обновить зависимости и Serialport",
-        "pt": "Atualize realmente dependências e Serialport",
-        "nl": "Werk afhankelijkheden en seriële poort echt bij",
-        "fr": "Vraiment mettre à jour les dépendances et Serialport",
-        "it": "Aggiorna davvero le dipendenze e Serialport",
-        "es": "Realmente actualice las dependencias y Serialport",
-        "pl": "Naprawdę aktualizuj zależności i port szeregowy",
-        "zh-cn": "真正更新依赖项和Serialport"
       }
     },
     "title": "CUL/culfw",
