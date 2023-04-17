@@ -39,7 +39,7 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 -->
 
 ## Changelog
-### 2.1.0 (2023-04-06)
+### **WORK IN PROGRESS**
 * (jpk) Select port by ID instead of name as option
 * (bluefox) Updated GUI for admin 6
 
