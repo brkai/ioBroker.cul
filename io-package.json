@@ -1,7 +1,21 @@
 {
   "common": {
     "name": "cul",
-    "version": "2.2.1",
+    "version": "2.2.2",
+    "news": {
+      "2.2.2": {
+        "en": "Update to latest recomended dependencies",
+        "de": "Update auf die aktuellsen vorgeschlagenen Abhaengigkeiten",
+        "ru": "Update to latest recomended dependencies",
+        "pt": "Update to latest recomended dependencies",
+        "nl": "Update to latest recomended dependencies",
+        "fr": "Update to latest recomended dependencies",
+        "it": "Update to latest recomended dependencies",
+        "es": "Update to latest recomended dependencies",
+        "pl": "Update to latest recomended dependencies",
+        "uk": "Update to latest recomended dependencies",
+        "zh-cn": "Update to latest recomended dependencies"
+      },
     "news": {
       "2.2.1": {
         "en": "Try for node 22",
