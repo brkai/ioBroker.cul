@@ -16,7 +16,6 @@
         "uk": "Update to latest recomended dependencies",
         "zh-cn": "Update to latest recomended dependencies"
       },
-    "news": {
       "2.2.1": {
         "en": "Try for node 22",
         "de": "Versuch auf Node 22 anzupassen",
